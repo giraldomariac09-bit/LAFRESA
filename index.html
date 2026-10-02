@@ -1,197 +1,445 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Propuesta Estratégica - La Fresa</title>
 <style>
-body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#f4fbf4;color:#243;}
-header{background:linear-gradient(135deg,#2e7d32,#8bc34a);color:white;padding:50px;text-align:center}
-section{max-width:1200px;margin:auto;padding:25px}
-.card{background:white;border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 4px 15px rgba(0,0,0,.08)}
-h1,h2,h3{margin-top:0}
-h2{color:#2e7d32}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.badge{display:inline-block;background:#e8f5e9;border-radius:20px;padding:8px 14px;margin:5px}
-.highlight{background:#fff8e1;border-left:6px solid #ffc107;padding:18px;border-radius:10px}
-details{background:#fafafa;padding:12px;border-radius:10px;margin:10px 0}
-summary{cursor:pointer;font-weight:bold}
-ul li{margin:8px 0}
-footer{background:#2e7d32;color:white;text-align:center;padding:25px}
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4fbf4;
+    color: #1b3320;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(135deg, #2e7d32 0%, #689f38 100%);
+    color: white;
+    padding: clamp(35px, 8vw, 65px) 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(46, 125, 50, 0.25);
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+    font-weight: 800;
+  }
+
+  header h2 {
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    margin: 0 0 14px 0;
+    color: #f1f8e9;
+    font-weight: 500;
+  }
+
+  header p {
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    margin: 0;
+    opacity: 0.95;
+    word-break: break-word;
+  }
+
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(16px, 4vw, 30px) clamp(14px, 3vw, 24px);
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: clamp(18px, 4vw, 28px);
+    margin: clamp(16px, 3vw, 24px) 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(46, 125, 50, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  h1, h2, h3 {
+    margin-top: 0;
+    line-height: 1.3;
+  }
+
+  h2 {
+    color: #2e7d32;
+    font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    color: #1b5e20;
+    margin-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 16px;
+  }
+
+  .grid-item {
+    background: #f9fbf9;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e8f5e9;
+  }
+
+  .badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .highlight {
+    background: #fffdf5;
+    border-left: 6px solid #fbc02d;
+    padding: clamp(18px, 4vw, 24px);
+    border-radius: 12px;
+    margin: clamp(16px, 3vw, 24px) 0;
+    box-shadow: 0 4px 15px rgba(251, 192, 45, 0.12);
+  }
+
+  .highlight h2 {
+    color: #b78103;
+  }
+
+  details {
+    background: #fafafa;
+    border: 1px solid #eeeeee;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin: 12px 0;
+    transition: background-color 0.2s ease;
+  }
+
+  details[open] {
+    background: #f4fbf4;
+    border-color: #c8e6c9;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    color: #2e7d32;
+    padding: 4px 0;
+    user-select: none;
+    outline: none;
+  }
+
+  details p {
+    margin: 10px 0 4px 0;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+
+  ul li {
+    margin: 10px 0;
+  }
+
+  /* Embudo de conversión adaptativo */
+  .funnel-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .funnel-step {
+    background: #e8f5e9;
+    color: #1b5e20;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    display: inline-block;
+  }
+
+  .funnel-arrow {
+    color: #81c784;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  /* Barra de distribución */
+  .distribution-bar {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 14px 0 10px 0;
+  }
+
+  .dist-experience {
+    background: #4caf50;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .dist-promo {
+    background: #ffb300;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: clamp(20px, 4vw, 30px) 15px;
+    font-size: 0.95rem;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      padding: 30px 16px;
+    }
+    
+    .funnel-arrow {
+      display: inline-block;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+  }
 </style>
 </head>
 <body>
 
 <header>
-<h1>🎣 LA FRESA ESTADERO</h1>
-<h2>Propuesta Estratégica de Marketing Digital</h2>
-<p>Instagram • Comunidad • Pesca Deportiva • Experiencias Familiares</p>
+  <h1>🎣 LA FRESA ESTADERO</h1>
+  <h2>Propuesta Estratégica de Marketing Digital</h2>
+  <p>Instagram • Comunidad • Pesca Deportiva • Experiencias Familiares</p>
 </header>
 
 <section>
 
-<div class="highlight">
-<h2>Concepto Estratégico</h2>
-<p><strong>La Fresa no es simplemente un estadero.</strong><br>
-Es un lugar donde las familias crean recuerdos, los niños viven experiencias reales y cada fin de semana se convierte en una aventura diferente.</p>
-</div>
+  <div class="highlight">
+    <h2>🌟 Concepto Estratégico</h2>
+    <p><strong>La Fresa no es simplemente un estadero.</strong><br>
+    Es un lugar donde las familias crean recuerdos, los niños viven experiencias reales y cada fin de semana se convierte en una aventura diferente.</p>
+  </div>
 
-<div class="card">
-<h2>Objetivos Comerciales</h2>
-<ul>
-<li>Incrementar visitantes cada fin de semana.</li>
-<li>Posicionar los torneos de pesca deportiva como principal atractivo.</li>
-<li>Generar reconocimiento de marca en Popayán y alrededores.</li>
-<li>Construir comunidad antes de la apertura completa del restaurante.</li>
-<li>Convertir seguidores en visitantes recurrentes.</li>
-</ul>
-</div>
+  <div class="card">
+    <h2>🎯 Objetivos Comerciales</h2>
+    <ul>
+      <li>Incrementar visitantes cada fin de semana.</li>
+      <li>Posicionar los torneos de pesca deportiva como principal atractivo.</li>
+      <li>Generar reconocimiento de marca en Popayán y alrededores.</li>
+      <li>Construir comunidad antes de la apertura completa del restaurante.</li>
+      <li>Convertir seguidores en visitantes recurrentes.</li>
+    </ul>
+  </div>
 
-<div class="card">
-<h2>Avatar Principal</h2>
-<div class="grid">
-<div>
-<h3>👨‍👩‍👧 Familias</h3>
-<p>Buscan actividades diferentes para compartir juntos.</p>
-</div>
-<div>
-<h3>❤️ Parejas</h3>
-<p>Desean planes tranquilos y experiencias nuevas.</p>
-</div>
-<div>
-<h3>🚴 Ciclistas y Amigos</h3>
-<p>Necesitan destinos para desconectarse.</p>
-</div>
-<div>
-<h3>🧳 Turistas</h3>
-<p>Buscan lugares auténticos cerca de Popayán.</p>
-</div>
-</div>
-</div>
+  <div class="card">
+    <h2>👥 Avatar Principal</h2>
+    <div class="grid">
+      <div class="grid-item">
+        <h3>👨‍👩‍👧 Familias</h3>
+        <p>Buscan actividades diferentes para compartir juntos.</p>
+      </div>
+      <div class="grid-item">
+        <h3>❤️ Parejas</h3>
+        <p>Desean planes tranquilos y experiencias nuevas.</p>
+      </div>
+      <div class="grid-item">
+        <h3>🚴 Ciclistas y Amigos</h3>
+        <p>Necesitan destinos para desconectarse.</p>
+      </div>
+      <div class="grid-item">
+        <h3>🧳 Turistas</h3>
+        <p>Buscan lugares auténticos cerca de Popayán.</p>
+      </div>
+    </div>
+  </div>
 
-<div class="card">
-<h2>Punto A → Punto B</h2>
-<p><strong>Punto A:</strong> Personas sin planes, haciendo siempre lo mismo, buscando desconectarse.</p>
-<p><strong>Punto B:</strong> Familias que compartieron, vivieron algo diferente y quieren regresar.</p>
-</div>
+  <div class="card">
+    <h2>🔄 Punto A → Punto B</h2>
+    <p><strong>Punto A:</strong> Personas sin planes, haciendo siempre lo mismo, buscando desconectarse.</p>
+    <p><strong>Punto B:</strong> Familias que compartieron, vivieron algo diferente y quieren regresar.</p>
+  </div>
 
-<div class="card">
-<h2>Posicionamiento</h2>
-<p><strong>Mensaje Principal:</strong> “No todos los fines de semana tienen que ser iguales”.</p>
-<p><strong>Diferenciador:</strong> Pesca deportiva familiar y torneos para adultos y niños.</p>
-<p><strong>Lo que realmente vendemos:</strong> recuerdos, experiencias y conexión familiar.</p>
-</div>
+  <div class="card">
+    <h2>📌 Posicionamiento</h2>
+    <p><strong>Mensaje Principal:</strong> “No todos los fines de semana tienen que ser iguales”.</p>
+    <p><strong>Diferenciador:</strong> Pesca deportiva familiar y torneos para adultos y niños.</p>
+    <p><strong>Lo que realmente vendemos:</strong> recuerdos, experiencias y conexión familiar.</p>
+  </div>
 
-<div class="card">
-<h2>5 Pilares de Contenido</h2>
-<div class="grid">
-<div><h3>🌿 Experiencia</h3><p>Cómo se siente estar en La Fresa.</p></div>
-<div><h3>🎣 Pesca Deportiva</h3><p>Capturas, torneos y emociones.</p></div>
-<div><h3>👨‍👩‍👧‍👦 Familia</h3><p>Momentos reales y cercanos.</p></div>
-<div><h3>🏗️ Detrás de Cámaras</h3><p>Construcción y crecimiento.</p></div>
-<div><h3>🤝 Comunidad</h3><p>Encuestas, preguntas y participación.</p></div>
-</div>
-</div>
+  <div class="card">
+    <h2>🏛️ 5 Pilares de Contenido</h2>
+    <div class="grid">
+      <div class="grid-item"><h3>🌿 Experiencia</h3><p>Cómo se siente estar en La Fresa.</p></div>
+      <div class="grid-item"><h3>🎣 Pesca Deportiva</h3><p>Capturas, torneos y emociones.</p></div>
+      <div class="grid-item"><h3>👨‍👩‍👧‍👦 Familia</h3><p>Momentos reales y cercanos.</p></div>
+      <div class="grid-item"><h3>🏗️ Detrás de Cámaras</h3><p>Construcción y crecimiento.</p></div>
+      <div class="grid-item"><h3>🤝 Comunidad</h3><p>Encuestas, preguntas y participación.</p></div>
+    </div>
+  </div>
 
-<div class="card">
-<h2>Calendario Semanal</h2>
-<ul>
-<li><strong>Lunes:</strong> Lo que te perdiste este fin de semana.</li>
-<li><strong>Martes:</strong> Educación sobre pesca deportiva.</li>
-<li><strong>Miércoles:</strong> Reel viral.</li>
-<li><strong>Jueves:</strong> Invitación para el fin de semana.</li>
-<li><strong>Viernes:</strong> Preparativos y expectativa.</li>
-<li><strong>Sábado:</strong> Historias en vivo.</li>
-<li><strong>Domingo:</strong> Resultados, emociones y testimonios.</li>
-</ul>
-</div>
+  <div class="card">
+    <h2>📅 Calendario Semanal</h2>
+    <ul>
+      <li><strong>Lunes:</strong> Lo que te perdiste este fin de semana.</li>
+      <li><strong>Martes:</strong> Educación sobre pesca deportiva.</li>
+      <li><strong>Miércoles:</strong> Reel viral.</li>
+      <li><strong>Jueves:</strong> Invitación para el fin de semana.</li>
+      <li><strong>Viernes:</strong> Preparativos y expectativa.</li>
+      <li><strong>Sábado:</strong> Historias en vivo.</li>
+      <li><strong>Domingo:</strong> Resultados, emociones y testimonios.</li>
+    </ul>
+  </div>
 
-<div class="card">
-<h2>5 Reels Estratégicos</h2>
+  <div class="card">
+    <h2>🎬 5 Reels Estratégicos</h2>
 
-<details>
-<summary>🎥 Reel 1 - Domingo Diferente</summary>
-<p><strong>Hook:</strong> ¿Hace cuánto no tienes un domingo diferente?</p>
-<p><strong>Pico:</strong> Hay un lugar cerca de Popayán donde los niños cambian el celular por una caña de pescar.</p>
-<p><strong>CTA:</strong> Comenta PESCA.</p>
-</details>
+    <details>
+      <summary>🎥 Reel 1 - Domingo Diferente</summary>
+      <p><strong>Hook:</strong> ¿Hace cuánto no tienes un domingo diferente?</p>
+      <p><strong>Pico:</strong> Hay un lugar cerca de Popayán donde los niños cambian el celular por una caña de pescar.</p>
+      <p><strong>CTA:</strong> Comenta PESCA.</p>
+    </details>
 
-<details>
-<summary>🎥 Reel 2 - Lugar Desconocido</summary>
-<p>Recorrido visual mostrando naturaleza, lagos y experiencia.</p>
-</details>
+    <details>
+      <summary>🎥 Reel 2 - Lugar Desconocido</summary>
+      <p>Recorrido visual mostrando naturaleza, lagos y experiencia.</p>
+    </details>
 
-<details>
-<summary>🎥 Reel 3 - Primer Pez</summary>
-<p>La emoción de un niño capturando su primer pez.</p>
-</details>
+    <details>
+      <summary>🎥 Reel 3 - Primer Pez</summary>
+      <p>La emoción de un niño capturando su primer pez.</p>
+    </details>
 
-<details>
-<summary>🎥 Reel 4 - Torneo de Pesca</summary>
-<p>Expectativa e invitación al próximo torneo.</p>
-</details>
+    <details>
+      <summary>🎥 Reel 4 - Torneo de Pesca</summary>
+      <p>Expectativa e invitación al próximo torneo.</p>
+    </details>
 
-<details>
-<summary>🎥 Reel 5 - Detrás del Proyecto</summary>
-<p>Mostrar el crecimiento y construcción de La Fresa.</p>
-</details>
+    <details>
+      <summary>🎥 Reel 5 - Detrás del Proyecto</summary>
+      <p>Mostrar el crecimiento y construcción de La Fresa.</p>
+    </details>
+  </div>
 
-</div>
+  <div class="card">
+    <h2>✍️ 5 Posts</h2>
+    <ul>
+      <li>5 razones para salir de la rutina.</li>
+      <li>¿Por qué la pesca deportiva engancha tanto?</li>
+      <li>Los mejores recuerdos no ocurren frente a una pantalla.</li>
+      <li>Así estamos construyendo La Fresa.</li>
+      <li>Próximo torneo de pesca deportiva.</li>
+    </ul>
+  </div>
 
-<div class="card">
-<h2>5 Posts</h2>
-<ul>
-<li>5 razones para salir de la rutina.</li>
-<li>¿Por qué la pesca deportiva engancha tanto?</li>
-<li>Los mejores recuerdos no ocurren frente a una pantalla.</li>
-<li>Así estamos construyendo La Fresa.</li>
-<li>Próximo torneo de pesca deportiva.</li>
-</ul>
-</div>
+  <div class="card">
+    <h2>📱 Historias Diarias</h2>
+    <ul>
+      <li><strong>Lunes:</strong> Encuesta.</li>
+      <li><strong>Martes:</strong> Dato curioso.</li>
+      <li><strong>Miércoles:</strong> Pregunta interactiva.</li>
+      <li><strong>Jueves:</strong> Cuenta regresiva.</li>
+      <li><strong>Viernes:</strong> Preparativos.</li>
+      <li><strong>Sábado:</strong> Cobertura en vivo.</li>
+      <li><strong>Domingo:</strong> Resultados y emociones.</li>
+    </ul>
+  </div>
 
-<div class="card">
-<h2>Historias Diarias</h2>
-<ul>
-<li>Lunes: Encuesta.</li>
-<li>Martes: Dato curioso.</li>
-<li>Miércoles: Pregunta interactiva.</li>
-<li>Jueves: Cuenta regresiva.</li>
-<li>Viernes: Preparativos.</li>
-<li>Sábado: Cobertura en vivo.</li>
-<li>Domingo: Resultados y emociones.</li>
-</ul>
-</div>
+  <div class="card">
+    <h2>✨ Historias Destacadas</h2>
+    <div class="badge-container">
+      <span class="badge">🎣 Pesca</span>
+      <span class="badge">👨‍👩‍👧 Familia</span>
+      <span class="badge">📅 Eventos</span>
+      <span class="badge">❤️ Nosotros</span>
+      <span class="badge">📍 Ubicación</span>
+    </div>
+  </div>
 
-<div class="card">
-<h2>Historias Destacadas</h2>
-<span class="badge">🎣 Pesca</span>
-<span class="badge">👨‍👩‍👧 Familia</span>
-<span class="badge">📅 Eventos</span>
-<span class="badge">❤️ Nosotros</span>
-<span class="badge">📍 Ubicación</span>
-</div>
+  <div class="card">
+    <h2>🚀 Embudo de Conversión</h2>
+    <div class="funnel-steps">
+      <span class="funnel-step">📸 Instagram</span>
+      <span class="funnel-arrow">➔</span>
+      <span class="funnel-step">💬 Interacción</span>
+      <span class="funnel-arrow">➔</span>
+      <span class="funnel-step">📱 WhatsApp</span>
+      <span class="funnel-arrow">➔</span>
+      <span class="funnel-step">🏡 Visita</span>
+      <span class="funnel-arrow">➔</span>
+      <span class="funnel-step">🎣 Torneo</span>
+      <span class="funnel-arrow">➔</span>
+      <span class="funnel-step">⭐ Cliente Recurrente</span>
+    </div>
+  </div>
 
-<div class="card">
-<h2>Embudo de Conversión</h2>
-<p><strong>Instagram → Interacción → WhatsApp → Visita → Participación en Torneo → Cliente Recurrente</strong></p>
-</div>
+  <div class="card">
+    <h2>📊 Distribución de Contenido</h2>
+    <div class="distribution-bar">
+      <div class="dist-experience">80% Experiencia</div>
+      <div class="dist-promo">20% Promo</div>
+    </div>
+    <p><small><strong>80%</strong> Experiencia, emociones y comunidad. • <strong>20%</strong> Promoción de torneos y visitas.</small></p>
+  </div>
 
-<div class="card">
-<h2>Distribución de Contenido</h2>
-<p>80% Experiencia, emociones y comunidad.</p>
-<p>20% Promoción de torneos y visitas.</p>
-</div>
-
-<div class="highlight">
-<h2>Meta de Posicionamiento</h2>
-<p>Que cuando una familia piense en qué hacer el fin de semana cerca de Popayán, automáticamente piense en La Fresa.</p>
-</div>
+  <div class="highlight">
+    <h2>🎯 Meta de Posicionamiento</h2>
+    <p>Que cuando una familia piense en qué hacer el fin de semana cerca de Popayán, automáticamente piense en <strong>La Fresa</strong>.</p>
+  </div>
 
 </section>
 
 <footer>
-🎣 Estrategia Digital Integral • La Fresa Estadero
+  🎣 Estrategia Digital Integral • La Fresa Estadero
 </footer>
 
 </body>
